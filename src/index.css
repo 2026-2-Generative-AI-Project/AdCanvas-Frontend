@@ -5,20 +5,23 @@
   --font-sans:
     'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
-  --color-brand-50: #fff7ed;
-  --color-brand-100: #ffedd5;
-  --color-brand-200: #fed7aa;
-  --color-brand-300: #fdba74;
-  --color-brand-400: #fb923c;
-  --color-brand-500: #f97316;
-  --color-brand-600: #ea580c;
-  --color-brand-700: #c2410c;
-  --color-brand-800: #9a3412;
-  --color-brand-900: #7c2d12;
+  --color-brand-50: #f5f2ff;
+  --color-brand-100: #ece6fe;
+  --color-brand-200: #d9cefc;
+  --color-brand-300: #bca9f8;
+  --color-brand-400: #9b7cf2;
+  --color-brand-500: #7f58eb;
+  --color-brand-600: #6e45e2;
+  --color-brand-700: #5b35c6;
+  --color-brand-800: #4b2ca2;
+  --color-brand-900: #3e2783;
+
+  /* 페이지 배경 */
+  --color-canvas: #f8f8fc;
 }
 
 @layer base {
   body {
-    @apply bg-neutral-50 text-neutral-900 antialiased;
+    @apply bg-canvas text-neutral-900 antialiased;
   }
 }
