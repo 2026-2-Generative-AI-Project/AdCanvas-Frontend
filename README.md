@@ -1,6 +1,6 @@
 # AdCanvas-Frontend
 
-AdCanvas의 프론트엔드 레포지토리입니다. 음식 사진과 배경 프롬프트를 받아, 음식은 그대로 두고 배경만 생성한 광고 이미지(1:1, 4:5, 9:16)를 만들어 줍니다.
+AdCanvas의 프론트엔드 레포지토리입니다. 음식 사진과 배경 프롬프트를 받아, 음식은 그대로 두고 배경만 생성한 광고 이미지(인스타그램 피드 1:1, 스토리 9:16, 쇼핑몰 배너 16:9)와 광고 문구를 만들어 줍니다.
 
 ## 시작하기
 
@@ -14,9 +14,14 @@ cp .env.example .env   # 백엔드 주소 설정 (아래 참고)
 npm run dev            # http://localhost:5173
 ```
 
+### 백엔드 없이 화면 확인하기
+
+`.env`에 `VITE_API_MOCK=true`(기본값)로 두면 백엔드를 호출하지 않고 가짜 응답을 씁니다.
+약 7초 뒤 업로드한 사진이 그대로 결과 화면에 나오고, 결과 이미지에 "예시 결과" 배지가 붙습니다.
+
 ### 백엔드 연결
 
-개발 서버는 `/api`로 시작하는 요청을 `.env`의 `VITE_API_PROXY_TARGET`으로 넘깁니다.
+`VITE_API_MOCK=false`로 바꾸면 실제 백엔드를 호출합니다. 개발 서버는 `/api`로 시작하는 요청을 `.env`의 `VITE_API_PROXY_TARGET`으로 넘깁니다.
 Colab에서 백엔드를 띄웠다면 ngrok 주소를 넣으면 됩니다.
 
 ```env
@@ -46,11 +51,15 @@ React 19 · TypeScript · Vite · Tailwind CSS v4 · React Router v7 · oxlint �
 
 ```
 src/
-├── api/              # 백엔드 호출 (client.ts의 request()를 거침)
+├── api/              # 백엔드 호출 (client.ts의 request()를 거침), mock.ts
 ├── components/
-│   └── layout/       # 공통 레이아웃 (헤더 등)
-├── lib/              # 유틸 함수
+│   ├── layout/       # 공통 레이아웃 (헤더 등)
+│   ├── ui/           # Button, Card 등 공통 UI
+│   └── create/       # 광고 만들기 화면 전용 컴포넌트
+├── contexts/         # 화면 간 공유 상태 (CreateAdContext)
+├── lib/              # 유틸 함수, 훅, 선택지 상수
 ├── pages/            # 라우트 단위 페이지
+│   └── create/       # /create → /create/generating → /create/result
 ├── router.tsx        # 라우트 정의
 ├── index.css         # Tailwind + 테마 (brand 색상, Pretendard 폰트)
 └── main.tsx
