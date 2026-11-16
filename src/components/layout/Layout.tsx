@@ -12,7 +12,7 @@ export default function Layout() {
             </Link>
           </div>
         </header>
-        <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8 sm:py-10">
+        <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-4 py-8 sm:py-10">
           <Outlet />
         </main>
       </div>
