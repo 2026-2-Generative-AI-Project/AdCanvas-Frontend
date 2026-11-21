@@ -1,11 +1,11 @@
 import { request } from '@/api/client'
 import { mockGenerateAd } from '@/api/mock'
 
-// ⚠️ 임시 형식: AdCanvas/ImageGeneration/adgen.py의 Config(image, prompt, ratio, backend)를 기준으로
+// 임시 형식: AdCanvas/ImageGeneration/adgen.py의 Config(image, prompt, ratio, backend)를 기준으로
 // 화면에서 받는 값(상품명, 가게명, 대상 고객, 분위기)을 더했다.
 // 백엔드 HTTP API 스펙이 정해지면 경로와 필드를 수정한다.
 
-export type AspectRatio = '1:1' | '4:5' | '9:16' | '16:9'
+export type AspectRatio = '1:1' | '4:5' | '9:16'
 export type GenerationBackend = 'mock' | 'sdxl' | 'openai'
 export type Mood = 'auto' | 'clean' | 'emotional' | 'luxury' | 'lively'
 

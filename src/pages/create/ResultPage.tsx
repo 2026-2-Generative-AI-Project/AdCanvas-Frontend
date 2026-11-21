@@ -15,7 +15,6 @@ const ASPECT_CLASS = {
   '1:1': 'aspect-square',
   '4:5': 'aspect-[4/5] max-w-md',
   '9:16': 'aspect-[9/16] max-w-xs',
-  '16:9': 'aspect-video',
 } as const
 
 export default function ResultPage() {
