@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router'
-import { isMockApi } from '@/api/generate'
+import { isMockApi } from '@/api/client'
 import PageHeader from '@/components/PageHeader'
 import Stepper from '@/components/Stepper'
 import { Button } from '@/components/ui/Button'
@@ -149,6 +149,17 @@ export default function ResultPage() {
               {actionError}
             </p>
           )}
+
+          <Button
+            variant="secondary"
+            className="mt-4 w-full"
+            onClick={() => navigate('/create/boxes')}
+          >
+            그릇 다시 지정
+          </Button>
+          <p className="mt-2 text-center text-xs text-neutral-500">
+            원하는 음식이 빠졌거나 다른 그릇이 들어갔다면 다시 지정할 수 있어요.
+          </p>
 
           <div className="mt-6 rounded-xl bg-brand-50 p-4">
             <p className="text-sm font-semibold text-brand-700">게시 전 한 번만 확인해 주세요</p>

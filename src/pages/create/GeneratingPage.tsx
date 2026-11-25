@@ -64,6 +64,8 @@ export default function GeneratingPage() {
   }, [status, navigate])
 
   if (!form || status === 'idle') return <Navigate to="/create" replace />
+  // 서버가 음식(그릇)을 못 찾으면(422) 박스 지정 화면에서 메시지를 보여준다
+  if (status === 'needsBoxes') return <Navigate to="/create/boxes" replace />
 
   const failed = status === 'error'
   const progress = ((step + 0.5) / STEPS.length) * 100
